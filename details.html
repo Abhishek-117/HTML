@@ -5,10 +5,11 @@
 </head>
 <body>
 	<h1>Details</h1>
-	<p>Name : id(Username)</p>
-	<p>Phone Number : id(phone)</p>
-	<p>Choice of Courses : id(Courses)</p>
-	<p>Description : id(description)</p>
-	<p>Subject Interests : id(interests)</p>
+	<script language="javascript" type="text/javascript">
+		document.write(document.getElementByName("Username").value);
+		document.write("<br>",document.getElementByName("phone").value);
+		document.write("<br>",document.getElementByName("course").value);
+		document.write("<br>",document.getElementByName("interests").value);
+	</script>
 </body>
 </html>

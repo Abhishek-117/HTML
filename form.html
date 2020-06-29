@@ -4,11 +4,39 @@
 	<title>Form page</title>
 </head>
 <body>
-	<form method="POST" action="details.html">
+	<script language="javascript" type="text/javascript">
+			function validateForm() 
+			{
+			  	var fname = document.forms["myForm"]["Username"].value;
+				if (fname == "") 
+				{
+					alert("Enter a valid name");
+					return false;
+				}
+
+				var number[10] = document.forms["myForm"]["phone"].value, i=0;
+				for(i=0;i<10;i++)
+					if(number[i] < 0 || number[i]>9)
+					{
+						alert("Enter a valid number");
+						return false;
+					}
+
+				var checkbx = document.froms["myForm"]["interests"].value;
+				if(checkbx != true)
+				{
+					alert("Select atleast one of the Subject Interests");
+					return false;
+				}
+			}
+		</script>
+	<form name="myForm" method="post" action="details.html" onsubmit="return validateForm()" > 
 		<label>Name:</label><br>
 		<input type="text" name="Username"><br><br>
+
 		<label>Phone number:</label><br>
-		<input type="tel" name="phone"><br><br>
+		<input ype="tel" name="phone"><br><br>
+
 		<label>Choice of courses:</label><br>
 		<input type="radio" name="Course" value="bachelors" checked>
 		<label>Bachelors</label><br>
@@ -17,15 +45,20 @@
 		<label>Description:</label><br>
 		<textarea name="description" rows="20" cols="50"></textarea><br><br>
 		<label>Subject Interests:</label><br>
-		<input type="checkbox" name="interests" value="dataScince">
+
+		<input type="checkbox" name="interests">
 		<label>Data Science</label><br>
-		<input type="checkbox" name="interests" value="ai_ml">
+
+		<input type="checkbox" name="interests">
 		<label>AI and ML</label><br>
-		<input type="checkbox" name="interests" value="robotics">
+
+		<input type="checkbox" name="interests">
 		<label>Robotics</label><br>
-		<input type="checkbox" name="interests" value="iot">
+
+		<input type="checkbox" name="interests">
 		<label>IOT</label><br>
-		<input formenctype="multipart/form-data" type="submit" name="Submit">
+
+		<input type="submit" name="Submit">
 	</form>
 </body>
 </html>
