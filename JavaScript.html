@@ -4,7 +4,8 @@
 	<title></title>
 </head>
 <body>
-	<p id="demo"></p>
+	<p>Enter date : </p><input id="date" type="date" name="date">
+	<input type="submit" name="Submit" onclick="return dateDisplay()">
 	<script language="javascript" type="text/javascript">
 		/*1)JavaScript is a programming language that adds interactivity to the website.
 	2)JavaScript ("JS" for short) is a full-fledged dynamic programming language that can add interactivity to a website.
@@ -25,13 +26,73 @@
 		console.log(multiply(7));
 
 		var random=Math.random();
-		document.write("Random Number : ", random);
+		document.write("<br>Random Number : ", random);
 		document.write("<br>Power Function : ", Math.pow(random,2));
 		document.write("<br>Square Root : ", Math.sqrt(random));
 		document.write("<br>Absolute value : ", Math.abs(random));
 		document.write("<br>Ceil Function : ", Math.ceil(random));
 		document.write("<br>Floor Function : ", Math.floor(random));
 		document.write("<br>Round Function : ", Math.round(random));
+
+		function dateDisplay()
+		{
+			var date=document.getElementById("date").value;
+			console.log(date);
+		}
 	</script>
+
+	<p>Enter a number between 10 and 100 : </p>
+	<input id="number" type="tel" name="number">
+	<input type="submit" name="Submit" onclick="return validNumber()">
+	<p id="validNum"></p>
+
+	<script>
+		function validNumber()
+		{
+			var num=document.getElementById("number").value;
+			if(num<10 || num>100)
+				alert("Enter a valid number");
+			else
+				alert("Valid number");
+			try{
+				if(num<10)
+					throw "number is too low";
+				else if(num>100)
+					throw "number is too high";
+				else
+					throw "number is valid";
+			}
+			catch(error)
+			{
+				document.getElementById("validNum").innerHTML = "Input "+error;
+			}
+
+		}
+		document.write("<br>Fibonacci series using for loop");
+		var num1=0;
+		var num2=1;
+		for(i=0;i<10;i++)
+		{
+			var temp=num1;
+			num1=num2;
+			num2=temp+num2;
+			document.write("<br>",num2);
+		}
+	</script>
+
+	<p id="description" >HTML stands for Hyper Text Markup Language. HTML is the standard markup language for creating Web pages. HTML describes the structure of a Web page</p>
+	<input type="submit" name="Slice" onclick="return sliceFunc()">
+	<p id="result"></p>
+
+	<script>
+		function sliceFunc()
+		{
+			var string=document.getElementById("description").innerHTML;
+			string = string.split(" ");
+			result = "5th word is \""+string[4]+"\"<br>7th word is \""+string[6]+"\"<br> 10th word is \""+string[9]+"\"";
+			document.getElementById("result").innerHTML=result;
+		}
+	</script>
+
 </body>
 </html>
